@@ -1,9 +1,5 @@
-edges = [int(x) for x in input().split()]
-if(edges[0]+edges[1]+edges[2] != 180 or
-        edges[0]+edges[1] < edges[2] or
-        edges[0]+edges[2] < edges[1] or
-        edges[1]+edges[2] < edges[0]) and
-        (X):
-    print("No")
-else:
+x, y, z = map(int, input().split())
+if x+y+z == 180 and x != 0 and y != 0 and z != 0:
     print("Yes")
+else:
+    print("No")
