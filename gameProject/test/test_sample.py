@@ -1,30 +1,44 @@
 import unittest, math
-from person import Person
+from work_place import *
+
 
 class ScoreListTest(unittest.TestCase):
 
     def test_a_scenario(self):
-        p = Person("mammad", 10)
-        p.job = "mohandes"
-        p.level = 9
-        p.upgrade()
+        w = WorkPlace("quera")
+        w.expertise = "mine"
 
-        class WorkPlace:
+        def f(self):
+            self.capacity += 1
+
+        WorkPlace.calc_capacity = f
+
+        w.upgrade()
+
+        class Person:
             pass
 
-        p.work_place = WorkPlace()
-        p.work_place.level = 5
+        p = Person()
+        p.work_place = None
+        w.hire(p)
+
+        self.assertEqual(w.employees[0], p)
+        self.assertEqual(w.level, 2)
+        self.assertEqual(w.capacity, 2)
+        self.assertEqual(w.name, "quera")
+        self.assertEqual(w.get_expertise(), "mine")
+        self.assertEqual(w.get_price(), Consts.BASE_PRICE["mine"])
+
+        WorkPlace.instances = []
 
         def f(a):
             def g():
                 return a
+
             return g
 
-        self.assertEqual(p.name, "mammad")
-        self.assertEqual(p.age, 10)
-        self.assertEqual(p.job, "mohandes")
-        self.assertEqual(p.level, 10) # 1 + 9
+        WorkPlace("new workplace").calc_costs = f(-10)
+        WorkPlace("new workplace").calc_costs = f(-20)
+        WorkPlace("new workplace").calc_costs = f(-30)
 
-        p.calc_income = f(100)
-        p.calc_life_cost = f(20)
-        self.assertAlmostEqual(p.calc(), p.do_level(p.calc_income()) - p.calc_life_cost(), delta=1e-5)
+        self.assertEqual(60, WorkPlace.calc_all())
