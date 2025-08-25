@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="answer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/frontEnd-react/snappShop/answer.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

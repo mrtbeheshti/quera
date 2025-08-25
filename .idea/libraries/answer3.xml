@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="answer3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/transporter/answer.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
